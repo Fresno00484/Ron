@@ -61,9 +61,9 @@ module.exports = {
       const totalCommands = commands.size;
       msg += `\n\n╭─────❃[𝙴𝙽𝙹𝙾𝚈]\n│>𝚃𝙾𝚃𝙰𝙻 𝙲𝙼𝙳𝚂: [${totalCommands}].\n│𝗧𝗬𝗣𝗘𝖳:[ ${prefix}𝗛𝗘𝗟𝗣 𝗧𝗢\n│<𝗖𝗠𝗗> 𝗧𝗢 𝗟𝗘𝗔𝗥𝗡 𝗧𝗛𝗘 𝗨𝗦𝗔𝗚𝗘.]\n╰────────────✦`;
       msg += ``;
-      msg += `\n╭─────❃\n│🌟 | [𝙶𝙾𝙰𝚃𝙱𝙾𝚃🐐│https://www.facebook.com/profile.php?id=/disting.disting.need05\n╰────────────✦`; 
+      msg += `\n╭─────❃\n│🌟 | [𝙶𝙾𝙰𝚃𝙱𝙾𝚃🐐│https:╰────────────✦`; 
 
-      const attachment = await axios.get("https://i.imgur.com/BfXcvZc.gif", { responseType: "stream" });
+      const attachment = await axios.get("", { responseType: "stream" });
 
       await message.reply({
         body: msg,
