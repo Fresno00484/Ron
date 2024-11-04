@@ -3,14 +3,14 @@ const axios = require("axios");
 const path = require("path");
 const { getPrefix } = global.utils;
 const { commands, aliases } = global.GoatBot;
-const doNotDelete = "[ N I S A N ]"; // changing this wont change the goatbot V2 of list cmd it is just a decoyy
+const doNotDelete = "『[✰AYAN💌』"; // don't change neme
 
 module.exports = {
   config: {
     name: "help",
     version: "1.17",
-    author: "ᴀғʀɪᴅɪ",
-    countDown: 5,
+    author: " MR.AYAN", // original author AYAN
+    countDown: 0,
     role: 0,
     shortDescription: {
       en: "View command usage and list all commands directly",
@@ -34,7 +34,7 @@ module.exports = {
       const categories = {};
       let msg = "";
 
-      msg += ``; // replace with your name 
+      msg += `╔═════▓࿇࿇▓═════╗\n             𝐀𝐋𝐋 𝐂𝐌𝐃 𝐋𝐈𝐒𝐓 𝗜𝗡 𝗠𝗔𝗛𝗜'𝗦 𝔅𝔞𝔫𝔨𝔞𝔦 𝔟𝔬𝔱 𝗕𝗢𝗧\n╚═════▓࿇࿇▓═════╝\n\n`; // replace with your name 
 
       for (const [name, value] of commands) {
         if (value.config.role > 1 && role < value.config.role) continue;
@@ -46,28 +46,38 @@ module.exports = {
 
       Object.keys(categories).forEach((category) => {
         if (category !== "info") {
-          msg += `\n╭─────❃『  ${category.toUpperCase()}  』`;
+          msg += `\n➪ ༆─☞︎︎︎ [${category.toUpperCase()}] 》👑`;
+
 
           const names = categories[category].commands.sort();
           for (let i = 0; i < names.length; i += 3) {
-            const cmds = names.slice(i, i + 2).map((item) => `☔︎${item}`);
-            msg += `\n│${cmds.join(" ".repeat(Math.max(1, 5 - cmds.join("").length)))}`;
+            const cmds = names.slice(i, i + 3).map((item) => ` ✯${item}|\n`);
+            msg += `\n ${cmds.join(" ".repeat(Math.max(1, 10 - cmds.join("").length)))}`;
           }
 
-          msg += `\n╰────────────✦`;
+          msg += ``;
         }
       });
 
       const totalCommands = commands.size;
-      msg += `\n\n╭─────❃[𝙴𝙽𝙹𝙾𝚈]\n│>𝚃𝙾𝚃𝙰𝙻 𝙲𝙼𝙳𝚂: [${totalCommands}].\n│𝗧𝗬𝗣𝗘𝖳:[ ${prefix}𝗛𝗘𝗟𝗣 𝗧𝗢\n│<𝗖𝗠𝗗> 𝗧𝗢 𝗟𝗘𝗔𝗥𝗡 𝗧𝗛𝗘 𝗨𝗦𝗔𝗚𝗘.]\n╰────────────✦`;
-      msg += ``;
-      msg += `\n╭─────❃\n│🌟 | [𝙶𝙾𝙰𝚃𝙱𝙾𝚃🐐│https:╰────────────✦`; 
+      msg += `\n𝗧𝗢𝗧𝗔𝗟 𝙲𝚖𝚍 ${totalCommands}\n𝚌𝚘𝚖𝚖𝚊𝚗𝚍 𝚝𝚑𝚊t 𝚞 𝚌𝚊𝚗 𝚞𝚜𝚎 in lord aizens bankai bot -`;
+      msg += `𝚝𝚢𝚙𝚎: 「${prefix} 𝗵𝗲𝗹𝗽」+「 𝐇𝐄𝐋𝐏 𝐂𝐌𝐃」𝚝𝚘 𝚟𝚒𝚎𝚠 𝚍𝚎𝚝𝚊𝚒𝚕𝚜 𝚘𝚏 𝚌𝚘𝚖𝚖𝚊𝚗𝚍𝚜\n`;
+      msg += `👑 | 𝐓𝐇𝐀𝐍𝐊𝐒 𝐅𝐎𝐑 𝐔𝐒𝐈𝐍𝐆 𝐋𝐎𝐑𝐃 𝐀𝐈𝐙𝐄𝐍 𝐉𝐑'𝐒 𝐁𝐎𝐓 𝐖𝐄'𝐋𝐋 𝐂𝐎𝐌𝐄 𝐖𝐈𝐓𝐇 𝐍𝐄𝐖 𝐔𝐏𝐃𝐀𝐓𝐄 𝐄𝐕𝐄𝐑𝐘 𝐖𝐄𝐄𝐊`; // its not decoy so change it if you want 
 
-      const attachment = await axios.get("", { responseType: "stream" });
+      const helpListImages = [
+        "https://i.imgur.com/Jhdzcfl.gif", // don't change imgur
+        "https://i.imgur.com/Xl2vJSB.gif",
+        "https://i.imgur.com/j4Gl2ZT.gif",
+        "https://i.imgur.com/wY3j9E1.gif",
+        "https://i.imgur.com/9bjkgqP.gif",
+        // don't change imgur
+      ];
+
+      const helpListImage = helpListImages[Math.floor(Math.random() * helpListImages.length)];
 
       await message.reply({
         body: msg,
-        attachment: attachment.data,
+        attachment: await global.utils.getStreamFromURL(helpListImage),
       });
     } else {
       const commandName = args[0].toLowerCase();
@@ -85,22 +95,21 @@ module.exports = {
         const guideBody = configCommand.guide?.en || "No guide available.";
         const usage = guideBody.replace(/{p}/g, prefix).replace(/{n}/g, configCommand.name);
 
-        const response = `╭── 𝙽𝙰𝙼𝙴 ────⭓
+        const response = `╭── 𝐍𝐀𝐌𝐄 𝐎𝐖𝐍𝐄𝐑 - 𝐋𝐎𝐑𝐃 𝐀𝐈𝐙𝐄𝐍 𝐉𝐑 (𝐌𝐀𝐇𝐈) ────⭓
   │ ${configCommand.name}
-  ├── 𝙸𝙽𝙵𝙾
-  │ 𝙳𝚎𝚜𝚌𝚛𝚒𝚙𝚝𝚒𝚘𝚗: ${longDescription}
+  ├── INFO
+  │ Description: ${longDescription}
   │ Other names: ${configCommand.aliases ? configCommand.aliases.join(", ") : "Do not have"}
   │ Other names in your group: Do not have
-  │ 𝚅𝚎𝚛𝚜𝚒𝚘𝚗: ${configCommand.version || "1.0"}
-  │ 𝚁𝚘𝚕𝚎: ${roleText}
-  | 𝙿𝚛𝚎𝚏𝚒𝚡: ${prefix}
-  │ 𝚃𝚒𝚖𝚎 𝚙𝚎𝚛 𝚌𝚘𝚖𝚖𝚊𝚗𝚍: ${configCommand.countDown || 1}s
-  │ 𝙰𝚞𝚝𝚑𝚘𝚛: ${author}
-  ├── 𝚄𝚜𝚊𝚐𝚎
+  │ Version: ${configCommand.version || "1.0"}
+  │ Role: ${roleText}
+  │ Time per command: ${configCommand.countDown || 1}s
+  │ Author: ${author}
+  ├── Usage
   │ ${usage}
-  ├──𝐍𝐨𝐭𝐞𝐬
-  │ The content inside <XXXXX> can be changed
-  │ The content inside [a|b|c] is a or b or c
+  ├── Notes
+  │ THIS BOT HAS BEEN MADE BY LORD AIZEN 
+  │ FOR ANY HELP YOU CAN CONTRACT WITH OWNER AIZEN  👑 -https://www.facebook.com/profile.php?id=100071288633689&mibextid=ZbWKwL
   ╰━━━━━━━❖`;
 
         await message.reply(response);
@@ -120,4 +129,4 @@ function roleTextToString(roleText) {
     default:
       return "Unknown role";
   }
-  }
+    }
